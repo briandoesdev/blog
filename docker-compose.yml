@@ -21,3 +21,7 @@ services:
         - traefik.blog.frontend.headers.STSPreload=true
     networks:
       - traefik-public
+
+networks:
+  traefik-public:
+    external: true
