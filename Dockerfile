@@ -1,6 +1,5 @@
 # stage build
 FROM node:17-alpine
-
 WORKDIR /app
 
 # copy everything to the container
