@@ -1,6 +1,5 @@
 <script context="module">
   // @ts-nocheck
-  export const prerender = false;
 
   import { gql, GraphQLClient } from 'graphql-request'
 
