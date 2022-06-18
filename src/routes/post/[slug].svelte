@@ -1,3 +1,14 @@
+<svelte:head>
+  <title>{post.title} | @briandoesdev</title>
+</svelte:head>
+
+<style>
+  .post-header-image {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+</style>
+
 <script context="module">
   // @ts-nocheck
 
@@ -47,25 +58,34 @@
 </script>
 
 <script>
-  // @ts-nocheck
-  export let post
+// @ts-nocheck
+
+  import SvelteMarkdown from 'svelte-markdown';
+  export let post;
+
 </script>
 
-<!-- <pre>{JSON.stringify(post, null, 2)}</pre> -->
-<ul>
-  <li>
+<main>
+  <div class="post-header">
+    <h2>{post.title}</h2>
+    <p>Posted: {post.postCreatedAt}</p>
     {#if post.postHeaderImage != null}
-      <img src="{post.postHeaderImage.url}" alt="{post.title}" />
+      <img class="post-header-image" src="{post.postHeaderImage.url}" alt="{post.title}" />
     {/if}
-    <a href="/post/{post.slug}">{post.title}</a>
-    <p>{post.disclaimer}</p>
-    <p>{post.disclaimerType}</p>
-    <p>{post.content}</p>
-    {#each post.tags as tag}
-    <p>#{tag}</p>
-    {/each}
-    <p>{post.postCreatedAt}</p>
-    <p>{post.postModifiedAt}</p>
-    <p>{post.urlSlug}</p>
-  </li>
-</ul>
+
+    
+  </div>
+
+  <div class="post-content">
+    <SvelteMarkdown source={post.content}/>
+  </div>
+
+  <div class="post-footer">
+    <div class="post-tags">
+      <h5>Tags:</h5>
+      {#each post.tags as tag}
+      <p>#{tag}</p>
+      {/each}
+    </div>
+  </div>
+</main>

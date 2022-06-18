@@ -3,14 +3,9 @@
 </svelte:head>
 
 <style>
-  .home {
-    max-width: 43.75rem;
-    margin: auto;
-  }
-
   .posts {
     list-style-type: none;
-    margin: 3rem 0;
+    margin: 2rem 0;
     padding: 0.1rem;
   }
 
@@ -64,27 +59,15 @@
    let posts
 </script>
 
-<div class="home">
-  <header>
-    <h3>
-      <a href="/">@briandoesdev</a>
-    </h3>
-    
+<main>
+  <ul class="posts">
+    {#each posts as post}
+    <li>
+      <a href="/post/{post.urlSlug}">{post.title}</a>
+      <p>{post.postCreatedAt}</p>
+    </li>
+    {/each}
+  </ul>
+</main>
 
-    <ul class="nav">
-      <li><a href="/">home</a></li>
-    </ul>
-  </header>
-
-  <main>
-    <ul class="posts">
-      {#each posts as post}
-      <li>
-        <a href="/post/{post.urlSlug}">{post.title}</a>
-        <p>{post.postCreatedAt}</p>
-      </li>
-      {/each}
-    </ul>
-  </main>
-</div>
 

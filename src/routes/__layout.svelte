@@ -1,21 +1,25 @@
 <style>
   * {
     margin: 0;
-    padding: 2rem;
+    padding: 0;
     line-height: 1.6;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  :global(header) {
+  :global(body) {
+    background-color: #fafafa;
+  }
+
+  header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-bottom: .5rem;
+    padding-top: 2rem;
     margin-bottom: 2rem;
     font-size: 1rem;
   }
 
-  :global(header a) {
+  header a {
     font-weight: inherit;
     line-height: inherit;
     color: black;
@@ -24,20 +28,37 @@
     text-underline-offset: .25rem;
   }
 
-  :global(.nav) {
+  .nav {
     padding-left: 0;
     margin-right: -.25rem;
     margin-bottom: 0;
     list-style: none;
   }
 
-  :global(.nav li) {
+  .nav li {
     display: inline-block;
     padding: .25rem;
   }
 
+  .home {
+    max-width: 43.75rem;
+    margin: auto;
+  }
 </style>
 
 <div class="container">
-  <slot></slot>
+  <div class="home">
+    <header>
+      <h3>
+        <a href="/">@briandoesdev</a>
+      </h3>
+      
+  
+      <ul class="nav">
+        <li><a href="/">home</a></li>
+      </ul>
+    </header>
+
+    <slot></slot>
+  </div>
 </div>
