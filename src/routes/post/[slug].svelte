@@ -17,8 +17,11 @@
   export async function load({ params }) {
     const postSlug = params.slug;
     console.log(`slug: ${postSlug}`)
+
+    // hardcoding path to GraphCMS until vite learns how to handle env vars
+    // https://github.com/vitejs/vite/issues/3176
     const graphcms = new GraphQLClient(
-      import.meta.env.VITE_GRAPHCMS_URL,
+      "https://api-us-east-1.graphcms.com/v2/cl1h36zti4zsq01xfgq4m6f4c/master",
       {
         headers: {},
       }
