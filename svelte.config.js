@@ -4,7 +4,11 @@ import adapter from '@sveltejs/adapter-node';
 const config = {
 	kit: {
 		adapter: adapter(),
-
+    vite: {
+      define: {
+        'process.env': process.env
+      }
+    },
     prerender: {
       // This can be false if you're using a fallback (i.e. SPA mode)
       default: false
