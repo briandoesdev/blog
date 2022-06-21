@@ -4,6 +4,10 @@ import adapter from '@sveltejs/adapter-node';
 const config = {
 	kit: {
 		adapter: adapter(),
+    appDir: 'appbuild',
+    paths: {
+			base: '/blog'
+		},
     vite: {
       define: {
         'process.env': process.env

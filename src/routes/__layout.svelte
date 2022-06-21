@@ -50,12 +50,13 @@
   <div class="home">
     <header>
       <h3>
-        <a href="/">@briandoesdev</a>
+        <a href="/blog">@briandoesdev</a>
       </h3>
       
   
       <ul class="nav">
-        <li><a href="/">home</a></li>
+        <li><a href="https://github.com/briandoesdev">github</a></li>
+        <li><a href="https://twitter.com/briandoesdev">twitter</a></li>
       </ul>
     </header>
 

@@ -31,18 +31,22 @@
     const graphcms = new GraphQLClient(
       GRAPHCMS_URL,
       {
-        headers: {},
+        headers: { "gcms-stage": "PUBLISHED" },
       }
     )
 
     const query = gql`
-      query PostsIndex {
-        posts {
-          title
-          postCreatedAt
-          urlSlug
+    query PostsQuery {
+      posts(orderBy: postCreatedAt_ASC) {
+        title
+        postCreatedAt
+        urlSlug
+        publishedBy {
+          name
+          picture
         }
       }
+    }
     `
 
     const { posts } = await graphcms.request(query)
@@ -68,7 +72,7 @@
   <ul class="posts">
     {#each posts as post}
     <li>
-      <a href="/post/{post.urlSlug}">{post.title}</a>
+      <a href="/blog/post/{post.urlSlug}">{post.title} | {post.publishedBy.name}</a>
       <p>{post.postCreatedAt}</p>
     </li>
     {/each}
